@@ -16,19 +16,24 @@ app.listen(
 
 app.get('/',(req, res)=>{
 //  res.send('<p>home page</p>');
- res.render('index', { title: 'Home'});
+const blogs = [
+    {title: 'Ashley finds purpose', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+    {title: 'Ashley finds superstrength', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+    {title: 'Ashley finds meaning', snippet: 'Lorem ipsum dolor sit amet consectetur'}
+];
+ res.render('index', { title: 'Home', blogs: blogs});
 } );
 
 app.get('/about',(req, res)=>{
     // res.send('<p>about page</p>');
-   res.render('about');
+   res.render('about', { title: 'About'});
    } );
 
 app.get('/blogs/create', (req, res)=>{
-  res.render('create'); 
+  res.render('create', { title: 'Create A new Blog'}); 
 });
 
 //404 page
 app.use((req, res)=>{
-    res.status(404).render('404');
+    res.status(404).render('404', { title: '404'});
 });

@@ -1,22 +1,8 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <title>Simple Blog</title>
-    </head>
+    <%- include('./partials/head.ejs') %>
     <body>
         
-        <nav>
-            <div class="site-title">
-                <a href="/"><h1>Simple Blog </h1></a>
-                <p>An outlet platform</p>
-            </div>
-            <ul>
-                <li><a href="/">Blogs</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/blogs/create">New Blogs</a></li>
-            </ul>
-        </nav>
+        <%- include('./partials/nav.ejs')%>
 
         <div class="create-blog content">
             <form action="">
@@ -29,5 +15,6 @@
                 <button>Submit</button>
             </form>
         </div>
+        <%- include('./partials/footer.ejs') %>
     </body>
 </html>

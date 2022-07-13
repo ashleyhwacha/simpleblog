@@ -1,16 +1,23 @@
 const express = require('express');
-
 const mongoose = require('mongoose');
+
+const dbCon = require('./config/dbconfig');
+
+require('dotenv').config()
 
 // express app
 const app = express();
 
+
+
 //connect to mongodb
-const dbURI = 'mongodb+srv://ashleyuser:1234@cluster0.aydw0.mongodb.net/note-tuts?retryWrites=true&w=majority';
-mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
+
+mongoose.connect(process.env.DB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
  .then((result)=> console.log('connected to db'))
- .catch((err)=> console.log(err) );
- 
+ .catch((err)=> console.log(err));
+
+
+
 // register view engine
 app.set('view engine', 'ejs');
  
